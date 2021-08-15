@@ -27,7 +27,22 @@ class CalculatorTest {
     }
 
     @Test
-    void classHasSevenMethods(){
-        assertEquals(7,Calculator.class.getMethods().length-Object.class.getMethods().length);
+    void getSqr() {
+        assertEquals(16, Calculator.getSqr(4));
+    }
+
+    @Test
+    void getDiscriminant() {
+        assertEquals(-8, Calculator.getDiscriminant(3, -4, 2));
+    }
+
+    @Test
+    void getFactorial() {
+        assertEquals(120, Calculator.getFactorial(5));
+    }
+
+    @Test
+    void classHasSevenMethods() {
+        assertEquals(7, Calculator.class.getMethods().length - Object.class.getMethods().length);
     }
 }
