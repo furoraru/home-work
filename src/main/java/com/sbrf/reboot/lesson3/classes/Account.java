@@ -1,7 +1,8 @@
 package com.sbrf.reboot.lesson3.classes;
 
-public class Account {
+import lombok.RequiredArgsConstructor;
 
-    public Account(String accountId) {
-    }
+@RequiredArgsConstructor
+public class Account {
+    private final String accountId;
 }
