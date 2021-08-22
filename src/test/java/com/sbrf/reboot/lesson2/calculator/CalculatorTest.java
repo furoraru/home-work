@@ -1,4 +1,4 @@
-package com.sbrf.reboot.calculator;
+package com.sbrf.reboot.lesson2.calculator;
 
 import org.junit.jupiter.api.Test;
 

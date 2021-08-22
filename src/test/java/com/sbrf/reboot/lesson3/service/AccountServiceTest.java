@@ -1,5 +1,7 @@
-package com.sbrf.reboot.service;
+package com.sbrf.reboot.lesson3.service;
 
+import com.sbrf.reboot.lesson3.classes.Account;
+import com.sbrf.reboot.lesson3.repository.AccountRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -8,6 +10,8 @@ import org.mockito.Mockito;
 import java.util.HashSet;
 import java.util.Set;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 class AccountServiceTest {
