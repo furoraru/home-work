@@ -1,4 +1,4 @@
-package com.sbrf.reboot.atm.cassettes;
+package com.sbrf.reboot.lesson5.atm.cassettes;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -7,10 +7,10 @@ import java.util.ArrayList;
 
 class CassetteTest {
 
-    class OneHundred extends Banknote {
+    static class OneHundred extends Banknote {
     }
 
-    class OneThousand extends Banknote {
+    static class OneThousand extends Banknote {
     }
 
     @Test
