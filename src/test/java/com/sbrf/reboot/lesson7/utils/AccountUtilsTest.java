@@ -1,13 +1,12 @@
-package com.sbrf.reboot.utils;
+package com.sbrf.reboot.lesson7.utils;
 
-import com.sbrf.reboot.dto.Account;
+import com.sbrf.reboot.lesson7.classes.Account;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 class AccountUtilsTest {
