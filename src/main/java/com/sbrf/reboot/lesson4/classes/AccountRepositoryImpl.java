@@ -18,7 +18,19 @@ public class AccountRepositoryImpl implements AccountRepository {
         Set<Account> accounts = new HashSet<>();
         String numberFromFile;
         long clientIdFromFile;
-        String currentLine = reader.readLine();
+        String currentLine = null;
+
+        try {
+            currentLine = reader.readLine();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
         while (currentLine != null) {
             if (currentLine.contains("clientId")) {
                 currentLine = currentLine.substring(currentLine.indexOf(":") + 1);
@@ -36,7 +48,11 @@ public class AccountRepositoryImpl implements AccountRepository {
             }
             currentLine = reader.readLine();
         }
-        reader.close();
+        try {
+            reader.close();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
 
         return accounts;
     }
@@ -46,9 +62,21 @@ public class AccountRepositoryImpl implements AccountRepository {
         BufferedReader reader = new BufferedReader(new FileReader(accountsPath));
 
         long clientIdFromFile;
-        String currentLine = reader.readLine();
         StringBuilder newAccountsList = new StringBuilder();
         boolean isNoUpdatedNumbers = true;
+        String currentLine = null;
+
+        try {
+            currentLine = reader.readLine();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
         while (currentLine != null) {
             newAccountsList.append(currentLine).append("\n");
             if (currentLine.contains("clientId") && isNoUpdatedNumbers) {
@@ -66,7 +94,11 @@ public class AccountRepositoryImpl implements AccountRepository {
             }
             currentLine = reader.readLine();
         }
-        reader.close();
+        try {
+            reader.close();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(accountsPath));
         writer.append(newAccountsList);
