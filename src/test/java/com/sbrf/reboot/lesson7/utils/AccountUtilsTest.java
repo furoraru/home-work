@@ -45,4 +45,23 @@ class AccountUtilsTest {
         Assertions.assertEquals(LocalDate.now().minusDays(3), accounts.get(2).getCreateDate());
         Assertions.assertEquals(LocalDate.now().minusDays(1), accounts.get(3).getCreateDate());
     }
+
+    @Test
+    void sortedByIdDateBalance() {
+        List<Account> accounts = new ArrayList<Account>() {{
+            add(Account.builder().id(1L).createDate(LocalDate.now().minusDays(4)).balance(BigDecimal.ZERO).build());
+            add(Account.builder().id(3L).createDate(LocalDate.now().minusDays(3)).balance(BigDecimal.TEN).build());
+            add(Account.builder().id(3L).createDate(LocalDate.now().minusDays(5)).balance(BigDecimal.TEN).build());
+            add(Account.builder().id(3L).createDate(LocalDate.now().minusDays(3)).balance(BigDecimal.ONE).build());
+            add(Account.builder().id(2L).createDate(LocalDate.now()).balance(BigDecimal.TEN).build());
+        }};
+
+        AccountUtils.sortedByIdDateBalance(accounts);
+
+        Assertions.assertEquals(1L, accounts.get(0).getId());
+        Assertions.assertEquals(2L, accounts.get(1).getId());
+        Assertions.assertEquals(LocalDate.now().minusDays(5), accounts.get(2).getCreateDate());
+        Assertions.assertEquals(BigDecimal.ONE, accounts.get(3).getBalance());
+        Assertions.assertEquals(BigDecimal.TEN, accounts.get(4).getBalance());
+    }
 }
